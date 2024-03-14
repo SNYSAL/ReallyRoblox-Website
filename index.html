@@ -3,49 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Website</title>
+    <title>Fake Windows Desktop</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
             margin: 0;
-            padding: 0;
-            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #95b8d1;
         }
-        #container {
-            margin-top: 50px;
+        #desktop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #95b8d1;
+            overflow: auto;
         }
-        #logo {
-            width: 200px;
-            margin-bottom: 20px;
-        }
-        #rickroll-button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #008db9;
-            color: white;
-            border: none;
+        .icon {
+            position: absolute;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #000;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
-        #rickroll-button:hover {
-            background-color: #005f80;
+        #icon1 { top: 100px; left: 100px; }
+        #icon2 { top: 100px; left: 250px; }
+        #icon3 { top: 100px; left: 400px; }
+        #icon4 { top: 250px; left: 100px; }
+        #icon5 { top: 250px; left: 250px; }
+        #icon6 { top: 250px; left: 400px; }
+        #taskbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #2f2f2f;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        #start-menu {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            width: 200px;
+            background-color: #2f2f2f;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        #start-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #start-button:hover {
+            background-color: #45a049;
+        }
+        .start-menu-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #fff;
+        }
+        .start-menu-item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <img id="logo" src="https://blog.roblox.com/wp-content/uploads/2019/06/RBXHeaderImage-1500x400-1.jpg" alt="Roblox Logo">
-        <h1>Welcome to Roblox!</h1>
-        <p>Click the button below for a surprise!</p>
-        <button id="rickroll-button" onclick="redirectToRickroll()">Click Here!</button>
+    <div id="desktop">
+        <div id="icon1" class="icon">My Computer</div>
+        <div id="icon2" class="icon">Documents</div>
+        <div id="icon3" class="icon">Recycle Bin</div>
+        <div id="icon4" class="icon">Internet Explorer</div>
+        <div id="icon5" class="icon">Calculator</div>
+        <div id="icon6" class="icon">Notepad</div>
+    </div>
+    
+    <div id="taskbar">
+        <button id="start-button">Start</button>
+        <div id="start-menu">
+            <div class="start-menu-item">Programs</div>
+            <div class="start-menu-item">Documents</div>
+            <div class="start-menu-item">Settings</div>
+            <div class="start-menu-item">Log Off</div>
+        </div>
     </div>
 
     <script>
-        function redirectToRickroll() {
-            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-        }
+        document.getElementById("start-button").addEventListener("click", function() {
+            var startMenu = document.getElementById("start-menu");
+            if (startMenu.style.display === "block") {
+                startMenu.style.display = "none";
+            } else {
+                startMenu.style.display = "block";
+            }
+        });
     </script>
 </body>
 </html>
